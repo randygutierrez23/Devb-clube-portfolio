@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-size: cover;
+}
+
+body {
+    background-color: #e5e5e5;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    background-size: cover;
+    overflow: hidden
+    
+}
+
+.title-portfolio {
+   height: 63vh;
+}
+
+.container {
+    width: 100%;
+    height: var(--height);
+    mask-image: linear-gradient(to right, transparent,#000 10% 90%, transparent);
+    overflow: hidden;
+}
+
+.carrosel {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRum 10s linear infinite;
+    animation-delay: calc(10/ var(--quantity) * var(--delay) ) !important;
+    cursor: pointer;
+}
+
+.container.reverse .item {
+    animation: reverseRum 10s linear infinite;
+}
+
+.item img {
+    width: 100%;
+}
+
+.container:hover .item {
+    animation-play-state: paused;
+    filter: grayscale(1)
+}
+
+.container .item:hover {
+    filter: grayscale(0);
+}
+
+@keyframes autoRum {
+    from {
+        left: 100%;
+    }
+    to {
+        left: -50px;
+    }
+}
+
+@keyframes reverseRum {
+    from {
+        left: -200px;
+    }
+    to {
+        left: 100%;
+    }
+}
